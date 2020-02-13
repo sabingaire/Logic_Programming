@@ -63,6 +63,10 @@ if L2 is empty and L1 only has one element then that would be the value
 min-above-min([M], [], M) :-
 number(A).
 
+%Second case when the second list is empty then return the minium valu from the first list
+min-above-min(L1, L2, N) :-
+    length(L2, 0),
+    min-val(L1, N).
 
 
 
