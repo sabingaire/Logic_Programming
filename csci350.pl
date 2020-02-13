@@ -19,6 +19,7 @@ sum-up-numbers-simple([Head|Tail], N):-
     \+ number(Head),
     sum-up-numbers-simple(Tail, TailSum),
     N is TailSum.
+sdsd
 
 
 
