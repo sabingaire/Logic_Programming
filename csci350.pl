@@ -14,7 +14,11 @@ number(Head),
 sum-up-numbers-simple(Tail, TailSum),
 N is Head + TailSum.
 
-
+% If HEAD is a non-number, skip element.
+sum-up-numbers-simple([Head|Tail], N):-
+    \+ number(Head),
+    sum-up-numbers-simple(Tail, TailSum),
+    N is TailSum.
 
 
 
