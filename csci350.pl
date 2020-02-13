@@ -51,6 +51,14 @@ sum-up-numbers-general(TAIL, TailSum),
 N is TailSum.
 
 
+%Question 3
+%min-above-min
+%Predicate name; min-above-min
+%Parameter: L1 and L2 which are simple list and N which is number
+%Returns true if N is the Minimum of L1 which is greater than minimum of L2
+
+
+
 
 
 
