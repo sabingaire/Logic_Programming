@@ -25,6 +25,8 @@ sum-up-numbers-simple([Head|Tail], N):-
 %Question 2
 %This is the sum of the numbers in general where sum of nested value will be caluculated
 % If L = [], N = 0
+%Name of the Predicate:sum-up-numbers-general
+%Paramaters: It takes L and N as question 1
 
 sum-up-numbers-general([], 0).
 
