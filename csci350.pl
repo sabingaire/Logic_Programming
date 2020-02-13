@@ -58,10 +58,10 @@ N is TailSum.
 %Returns true if N is the Minimum of L1 which is greater than minimum of L2
 
 %Base case
-if L2 is empty and L1 only has one element then that would be the value
+%if L2 is empty and L1 only has one element then that would be the value
 
 min-above-min([M], [], M) :-
-number(A).
+number(M).
 
 %Second case when the second list is empty then return the minium valu from the first list
 min-above-min(L1, L2, N) :-
@@ -80,8 +80,6 @@ min-above-min([Head|Tail], L2, Head) :-
 min-above-min([_|Tail], L2, Ans) :-
     min-above-min(Tail, L2, Ans).
 
-
-
-
-
+min-above-min([A], [], A) :-
+    number(A).
 
