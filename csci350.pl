@@ -16,7 +16,7 @@ number(Head),
 sum-up-numbers-simple(Tail, TailSum),
 N is Head + TailSum.
 
-% If HEAD is a non-number, skip element.
+% If Head is a non-number, skip element.
 sum-up-numbers-simple([Head|Tail], N):-
     \+ number(Head),
     sum-up-numbers-simple(Tail, TailSum),
@@ -29,6 +29,12 @@ sum-up-numbers-simple([Head|Tail], N):-
 %Paramaters: It takes L and N as question 1
 
 sum-up-numbers-general([], 0).
+
+% If Head is a number, add to sum.
+sum-up-numbers-general([Head|Tail], N):-
+    number(Head),
+    sum-up-numbers-general(Tail, TailSum),
+    N is Head + TailSum.
 
 
 
