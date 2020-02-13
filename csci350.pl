@@ -9,9 +9,13 @@
 sum-up-numbers-simple([], 0).
 %If head is number, then compute sum
 
-sum-up-numbers-simple([HEAD|TAIL], N):-
-number(HEAD),
-sum-up-numbers-simple(TAIL, TailSum),
-N is HEAD + TailSum.
+sum-up-numbers-simple([Head|Tail], N):-
+number(Head),
+sum-up-numbers-simple(Tail, TailSum),
+N is Head + TailSum.
+
+
+
+
 
 
