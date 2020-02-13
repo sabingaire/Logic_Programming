@@ -57,6 +57,11 @@ N is TailSum.
 %Parameter: L1 and L2 which are simple list and N which is number
 %Returns true if N is the Minimum of L1 which is greater than minimum of L2
 
+%Base case
+if L2 is empty and L1 only has one element then that would be the value
+
+min-above-min([M], [], M) :-
+number(A).
 
 
 
