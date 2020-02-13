@@ -68,6 +68,16 @@ min-above-min(L1, L2, N) :-
     length(L2, 0),
     min-val(L1, N).
 
+%If head is number and is greater than the minimum value
+
+min-above-min([Head|Tail], L2, Head) :-
+    number(Head),
+    min-val(L2, MinL),
+    MinL < Head,
+    larger-num(Tail, MinL, Head, Head).
+
+
+
 
 
 
