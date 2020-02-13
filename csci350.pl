@@ -43,6 +43,13 @@ sum-up-numbers-general(Tail, TailSum),
 sum-up-numbers-general(Head, HeadSum),
 N is HeadSum + TailSum.
 
+%When head is not a list or a number
+sum-up-numbers-general([HEAD|TAIL], N):-
+\+ number(HEAD),
+\+ is_list(HEAD),
+sum-up-numbers-general(TAIL, TailSum),
+N is TailSum.
+
 
 
 
