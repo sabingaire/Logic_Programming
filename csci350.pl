@@ -76,6 +76,10 @@ min-above-min([Head|Tail], L2, Head) :-
     MinL < Head,
     larger-num(Tail, MinL, Head, Head).
 
+%Else, the answer is the predicate with tail list
+min-above-min([_|Tail], L2, Ans) :-
+    min-above-min(Tail, L2, Ans).
+
 
 
 
