@@ -22,6 +22,12 @@ sum-up-numbers-simple([Head|Tail], N):-
     sum-up-numbers-simple(Tail, TailSum),
     N is TailSum.
 
+%Question 2
+%This is the sum of the numbers in general where sum of nested value will be caluculated
+% If L = [], N = 0
+
+sum-up-numbers-general([], 0).
+
 
 
 
