@@ -8,6 +8,8 @@
 
 sum-up-numbers-simple([], 0).
 %If head is number, then compute sum
+%Name of the Predicate: sum-up-numbers-simple
+%Paramters: P is list and N is  number
 
 sum-up-numbers-simple([Head|Tail], N):-
 number(Head),
@@ -19,7 +21,7 @@ sum-up-numbers-simple([Head|Tail], N):-
     \+ number(Head),
     sum-up-numbers-simple(Tail, TailSum),
     N is TailSum.
-sdsd
+
 
 
 
