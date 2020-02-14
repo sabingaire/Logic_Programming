@@ -67,17 +67,24 @@ number(M).
 %Second case when the second list is empty then return the minium valu from the first list
 min-above-min(L1, L2, N) :-
     length(L2, 0),
-    min-val(L1, N).
+    minimum-value(L1, N).
 
 %If head is number and is greater than the minimum value
 
 min-above-min([Head|Tail], L2, Head) :-
     number(Head),
-    min-val(L2, MinL),
+    minimum-value(L2, MinL),
     MinL < Head,
-    larger-num(Tail, MinL, Head, Head).
+    larger-number(Tail, MinL, Head, Head).
 
 %Else, the answer is the predicate with tail list
 min-above-min([_|Tail], L2, Ans) :-
     min-above-min(Tail, L2, Ans).
 
+%helper predicate:
+%minimum-value and larger-number
+
+%minimum value is the predicate which takes a list and returns the minimum element
+%First the base case where there is only one number in the list then return the list
+
+minimum-value([M], M) :- number(M).
