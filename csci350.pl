@@ -154,6 +154,7 @@ nest-breaker([HEAD|TAIL], L2):-
 
 % my-intersection(L1, L2) returns a list which is intersection of
 % two simple lists L1 and L2.
+%This will enable us to help in finding common intersection
 
 % empty list base case.
 my-intersection([],_,[]).
