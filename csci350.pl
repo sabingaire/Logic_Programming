@@ -114,3 +114,9 @@ minimum-value([Head, _|T], N) :-
 minimum-value([_|T], N) :-
     minimum-value(T, N).
 
+%next Helper function is larger-number
+%This takes list and one constant and another number within list and gives the number which is greater than the constant
+
+larger-number([], _, Num, Num).
+
+%If the head is greater than const and less than num, set as target
