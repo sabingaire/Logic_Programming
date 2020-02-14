@@ -119,4 +119,9 @@ minimum-value([_|T], N) :-
 
 larger-number([], _, Num, Num).
 
-%If the head is greater than const and less than num, set as target
+%If the head is greater than constant and less than the number than that is the required target
+larger-number([Head|T], Cons, Num, Head) :-
+    number(Head),
+    Head > Cons,
+    Head < Num,
+    larger-number(T, Cons, Head, Head).
