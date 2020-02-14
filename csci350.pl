@@ -204,7 +204,7 @@ remove_duplicates([],[]).
 remove_duplicates([H | T], List) :-
      member(H, T),
      remove_duplicates( T, List).
-
+%The use of member function to chcek if it is the member of the list or not
 remove_duplicates([H | T], [H|T1]) :-
       \+member(H, T),
       remove_duplicates( T, T1).
