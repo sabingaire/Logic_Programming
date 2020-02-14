@@ -56,6 +56,7 @@ N is TailSum.
 %Predicate name; min-above-min
 %Parameter: L1 and L2 which are simple list and N which is number
 %Returns true if N is the Minimum of L1 which is greater than minimum of L2
+%I had to change the function slightly as it was returning true for [100,200,300],[100],300. As it was not returning the correct boolean
 
 % if minimum of L2 exists, try..
 min-above-min(L1, L2, N):-
@@ -64,7 +65,7 @@ min-above-min(L1, L2, N):-
     minimum-value(GreaterList, N).
 
 min-above-min(L1, L2, N):-
-    \+ minimum-value(L2, MinL2),
+    \+ minimum-value(L2, _MinL2),
     minimum-value(L1, N).
 
 
@@ -74,7 +75,9 @@ min-above-min(L1, L2, N):-
 %minimum value is the predicate which takes a list and returns the minimum element
 %First the base case where there is only one number in the list then return the list
 %The base case returns the number M
-minimum-value([Head], MIN_VAL) :- number(Head),Min_Val is Head.
+minimum-value([Head], MIN_VAL) :-
+    number(Head),
+    MIN_VAL is Head.
 
 %also return false if last element is non numeric.
 minimum-value([Head]):-
@@ -84,10 +87,10 @@ minimum-value([Head]):-
 minimum-value([Head,NECK|TAIL], MIN_VAL):-
     number(Head),
     number(NECK),
-    HEAD > NECK,
+    Head > NECK,
     minimum-value([NECK|TAIL], MIN_VAL).
 
-minimum-value[HEAD,NECK|TAIL], MIN_VAL):-
+minimum-value([Head,NECK|TAIL], MIN_VAL):-
     number(Head),
     number(NECK),
     Head =< NECK,
@@ -120,7 +123,7 @@ minimum-value(TAIL, MIN_VAL).
 %next Helper function is larger-number
 %This takes list and one number and return all greater that number
 
-larger-number([], _,[]) :- !,
+larger-number([], _,[]) :- !.
 
 %If the head is greater than number and it is number
 larger-number([Head|TAIL], X, L) :-
