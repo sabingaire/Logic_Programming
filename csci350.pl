@@ -131,9 +131,9 @@ minimum-value([Head, NECK|TAIL], MIN_VAL):-
 minimum-value(TAIL, MIN_VAL).
 
 %next Helper function is larger-number
-%This takes list and one constant and another number within list and gives the number which is greater than the constant
+%This takes list and one number and return all greater that number
 
-larger-number([], _, Num, Num).
+larger-number([], _,[]) :- !,
 
 %If the head is greater than constant and less than the number than that is the required target
 larger-number([Head|T], Cons, Num, Head) :-
