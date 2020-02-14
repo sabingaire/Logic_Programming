@@ -113,10 +113,11 @@ minimum-value([Head, K|T], N) :-
     K < Head,
     minimum-value([K|T], N).
 
-%The case when the given second element is not numeric
-minimum-value([Head, _|T], N) :-
-    number(Head),
-    minimum-value([Head|T], N).
+%if HEAD is not in numeric form
+minimum-value([Head,NECK|TAIL], MIN_VAL):-
+    \+ number(Head),
+    number(NECK),
+    minimum-value([NECK|TAIL], MIN_VAL).
 
 %otherwise escape it
 minimum-value([_|T], N) :-
