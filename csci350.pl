@@ -92,7 +92,16 @@ minimum-value([M], M) :- number(M).
 %The second case where the first element in the list is less than the second element
 %We consider the case where the first elemenet is equal as well.
 minimum-value([Head, K|T], N) :-
-number(Head),
-number(K),
-Head =< K,
-minimum-value([Head|T], N).
+    number(Head),
+    number(K),
+    Head =< K,
+    minimum-value([Head|T], N).
+
+%The second element is smaller
+
+minimum-value([Head, K|T], N) :-
+    number(Head),
+    number(K),
+    K < Head,
+    mininum-value([K|T], N).
+
