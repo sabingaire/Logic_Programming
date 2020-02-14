@@ -123,7 +123,8 @@ minimum-value(TAIL, MIN_VAL).
 %next Helper function is larger-number
 %This takes list and one number and return all greater that number
 
-larger-number([], _,[]) :- !.
+larger-number([], _,[]) :-
+    !.
 
 %If the head is greater than number and it is number
 larger-number([Head|TAIL], X, L) :-
@@ -198,6 +199,8 @@ common-unique-elements(L1, L2 , L):-
 
 %The remove duplicates remove the duplicates from a given list
 %Base Case when the list is empty then the duplicate of empty list is empty.
+%This remove duplicates was added in order to return the common unique elements.added
+
 
 remove_duplicates([],[]).
 
