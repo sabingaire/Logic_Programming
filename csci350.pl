@@ -110,3 +110,7 @@ minimum-value([Head, _|T], N) :-
     number(Head),
     minimum-value([Head|T], N).
 
+%otherwise escape it
+minimum-value([_|T], N) :-
+    minimum-value(T, N).
+
