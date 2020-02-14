@@ -103,5 +103,10 @@ minimum-value([Head, K|T], N) :-
     number(Head),
     number(K),
     K < Head,
-    mininum-value([K|T], N).
+    minimum-value([K|T], N).
+
+%The case when the given second element is not numeric
+minimum-value([Head, _|T], N) :-
+    number(Head),
+    minimum-value([Head|T], N).
 
