@@ -197,6 +197,7 @@ common-unique-elements(L1, L2 , L):-
     my-intersection(M1, M2, L).
 
 %The remove duplicates remove the duplicates from a given list
+%Base Case when the list is empty then the duplicate of empty list is empty.
 
 remove_duplicates([],[]).
 
