@@ -153,6 +153,16 @@ nested-break([HEAD|TAIL], L2):-
     nested-break(HEAD, FlatHead),
     append(FlatHead, FlatTail, L2).
 
+% intersection(L1, L2) returns a list which is intersection of
+% two simple lists L1 and L2.
+%This will enable us to help in finding common
+
+% empty list base case.
+intersection([],_,[]).
+
+
+
+
 
 
 
