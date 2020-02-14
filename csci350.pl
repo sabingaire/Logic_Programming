@@ -192,7 +192,9 @@ common-unique-elements([], _, []).
 common-unique-elements(L1, L2 , L):-
     nested-break(L1, M1),
     nested-break(L2, M2),
-    
+    remove_duplicates(M1,N1),
+    remove_duplicates(M2,N2),
+    intersection(N1, N2, L).
 
 
 
