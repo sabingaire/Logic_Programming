@@ -134,41 +134,54 @@ larger-number(T, Cons, Num, Ans).
 %For question 4 the predicate is common-unique-elements
 %In the predicate, it will take two list s and check for the unique common items
 %This predicate will take other three helpful predicate one which will take out the nested loop, other removing the duplicates and other intersecting
-$First the
+%First the list has to broken into simple list
 
-%if list is empty, then no need to break
-nested-break([], []).
+nest-breaker([], []).
 
-% if Head is not the list
-nested-break([HEAD|TAIL], L2):-
+% if HEAD is not a list.
+nest-breaker([HEAD|TAIL], L2):-
     \+ is_list(HEAD),
-    nested-break(TAIL, FlatTail),
+    nest-breaker(TAIL, FlatTail),
     append([HEAD], FlatTail, L2).
 
-
 % if HEAD is list.
-nested-break([HEAD|TAIL], L2):-
+nest-breaker([HEAD|TAIL], L2):-
     is_list(HEAD),
-    nested-break(TAIL, FlatTail),
-    nested-break(HEAD, FlatHead),
+    nest-breaker(TAIL, FlatTail),
+    nest-breaker(HEAD, FlatHead),
     append(FlatHead, FlatTail, L2).
 
-% intersection(L1, L2) returns a list which is intersection of
+
+% my-intersection(L1, L2) returns a list which is intersection of
 % two simple lists L1 and L2.
-%This will enable us to help in finding common
 
 % empty list base case.
-intersection([],_,[]).
+my-intersection([],_,[]).
 
-% when common member in both lists
-intersection([HEAD|TAIL1],M,[HEAD|TAIL2]) :-
+% if common member in both lists.
+my-intersection([HEAD|TAIL1],M,[HEAD|TAIL2]) :-
     member(HEAD,M),
-    intersection(TAIL1,M,TAIL2).
+    my-intersection(TAIL1,M,TAIL2).
 
-% if not common member then
-intersection([HEAD|TAIL],M,Z) :-
+% if not common member.
+my-intersection([HEAD|TAIL],M,Z) :-
     \+ member(HEAD,M),
     intersection(TAIL,M,Z).
+
+
+% common-unique-elements(L1, L2, L) returns true if N is a simple list
+% of the items that appear in both L1 and L2
+
+% empty list base case.
+common-unique-elements([], _, []).
+
+% for non-empty case, flatten and return intersection of two lists.
+common-unique-elements(L1, L2 , L):-
+    nest-breaker(L1, N1),
+    nest-breaker(L2, N2),
+    remove_duplicates(N1,M1),
+    remove_duplicates(N2,M2),
+    my-intersection(M1, M2, L).
 
 %The remove duplicates remove the duplicates from a given list
 
@@ -182,19 +195,7 @@ remove_duplicates([H | T], [H|T1]) :-
       \+member(H, T),
       remove_duplicates( T, T1).
 
-% common-unique-elements(L1, L2, L) returns true if N is a simple list
-% This will check for the unique elements
 
-% empty list base case.
-common-unique-elements([], _, []).
-
-% for non-empty case, flatten and return intersection of two lists.
-common-unique-elements(L1, L2 , L):-
-    nested-break(L1, M1),
-    nested-break(L2, M2),
-    remove_duplicates(M1,N1),
-    remove_duplicates(M2,N2),
-    intersection(N1, N2, L).
 
 
 
