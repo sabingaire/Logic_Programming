@@ -170,6 +170,22 @@ intersection([HEAD|TAIL],M,Z) :-
     \+ member(HEAD,M),
     intersection(TAIL,M,Z).
 
+%The remove duplicates remove the duplicates from a given list
+
+remove_duplicates([],[]).
+
+remove_duplicates([H | T], List) :-
+     member(H, T),
+     remove_duplicates( T, List).
+
+remove_duplicates([H | T], [H|T1]) :-
+      \+member(H, T),
+      remove_duplicates( T, T1).
+
+
+
+
+
 
 
 
