@@ -165,6 +165,14 @@ intersection([HEAD|TAIL1],M,[HEAD|TAIL2]) :-
     member(HEAD,M),
     intersection(TAIL1,M,TAIL2).
 
+% if not common member then
+intersection([HEAD|TAIL],M,Z) :-
+    \+ member(HEAD,M),
+    intersection(TAIL,M,Z).
+
+
+
+
 
 
 
