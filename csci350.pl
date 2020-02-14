@@ -188,6 +188,13 @@ remove_duplicates([H | T], [H|T1]) :-
 % empty list base case.
 common-unique-elements([], _, []).
 
+% for non-empty case, flatten and return intersection of two lists.
+common-unique-elements(L1, L2 , L):-
+    nested-break(L1, M1),
+    nested-break(L2, M2),
+    
+
+
 
 
 
