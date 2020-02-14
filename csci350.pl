@@ -120,10 +120,15 @@ minimum-value([Head,NECK|TAIL], MIN_VAL):-
     minimum-value([NECK|TAIL], MIN_VAL).
 
 % if NECK is non-numeric
-minimum_value([Head,NECK|TAIL], MIN_VAL):-
+minimum-value([Head,NECK|TAIL], MIN_VAL):-
     number(Head),
     \+(number(NECK)),
-    minimum_value([Head|TAIL], MIN_VAL).
+    minimum-value([Head|TAIL], MIN_VAL).
+
+minimum-value([Head, NECK|TAIL], MIN_VAL):-
+\+ number(Head),
+\+(number(NECK)),
+minimum-value(TAIL, MIN_VAL).
 
 %next Helper function is larger-number
 %This takes list and one constant and another number within list and gives the number which is greater than the constant
