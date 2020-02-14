@@ -129,3 +129,13 @@ larger-number([Head|T], Cons, Num, Head) :-
 %otherwise
 larger-number([_|T], Cons, Num, Ans) :-
 larger-number(T, Cons, Num, Ans).
+
+
+%For question 4 the predicate is common-unique-elements
+%In the predicate, it will take two list s and check for the unique common items
+%This predicate will take other three helpful predicate one which will take out the nested loop, other removing the duplicates and other intersecting
+$First the
+
+%if list is empty, then no need to break
+nested-break([], []).
+
