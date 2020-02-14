@@ -139,3 +139,10 @@ $First the
 %if list is empty, then no need to break
 nested-break([], []).
 
+% if Head is not the list
+nested-break([HEAD|TAIL], L2):-
+    \+ is_list(HEAD),
+    nested-break(TAIL, FlatTail),
+    append([HEAD], FlatTail, L2).
+
+
