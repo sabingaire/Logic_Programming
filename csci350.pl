@@ -87,7 +87,11 @@ min-above-min([_|Tail], L2, Ans) :-
 %minimum value is the predicate which takes a list and returns the minimum element
 %First the base case where there is only one number in the list then return the list
 %The base case returns the number M
-minimum-value([M], M) :- number(M).
+minimum-value([Head], Min_val) :- number(Head),Min_Val is Head.
+
+%also return false if last element is non numeric.
+minimum-value([Head]):-
+\+number(Head).
 
 %The second case where the first element in the list is less than the second element
 %We consider the case where the first elemenet is equal as well.
