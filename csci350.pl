@@ -146,3 +146,14 @@ nested-break([HEAD|TAIL], L2):-
     append([HEAD], FlatTail, L2).
 
 
+% if HEAD is list.
+nested-break([HEAD|TAIL], L2):-
+    is_list(HEAD),
+    nested-break(TAIL, FlatTail),
+    nested-break(HEAD, FlatHead),
+    append(FlatHead, FlatTail, L2).
+
+
+
+
+
