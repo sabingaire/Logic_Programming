@@ -182,6 +182,13 @@ remove_duplicates([H | T], [H|T1]) :-
       \+member(H, T),
       remove_duplicates( T, T1).
 
+% common-unique-elements(L1, L2, L) returns true if N is a simple list
+% This will check for the unique elements
+
+% empty list base case.
+common-unique-elements([], _, []).
+
+
 
 
 
