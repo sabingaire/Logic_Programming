@@ -63,6 +63,10 @@ min-above-min(L1, L2, N):-
     larger-number(L1, MinL2, GreaterList),
     minimum-value(GreaterList, N).
 
+min-above-min(L1, L2, N):-
+    \+ minimum-value(L2, MinL2),
+    minimum-value(L1, N).
+
 
 %helper predicate:
 %minimum-value and larger-number
