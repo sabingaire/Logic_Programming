@@ -142,10 +142,16 @@ larger-number([Head|TAIL], X, L) :-
     larger-number(TAIL, X, L1),
     append([Head], L1, L).
 
-%otherwise
-larger-number([_|T], Cons, Num, Ans) :-
-larger-number(T, Cons, Num, Ans).
+% if HEAD is number, but Head is less than the min value
+larger-number([Head|TAIL], X, L) :-
+    number(Head),
+    Head =< X,
+    larger-number(TAIL, X, L).
 
+% if HEAD is non-number, ignore.
+larger-number([Head|TAIL], X, L) :-
+    \+ number(Head),
+    larger-number(TAIL, X, L).
 
 %For question 4 the predicate is common-unique-elements
 %In the predicate, it will take two list s and check for the unique common items
