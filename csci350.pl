@@ -160,6 +160,13 @@ nested-break([HEAD|TAIL], L2):-
 % empty list base case.
 intersection([],_,[]).
 
+% when common member in both lists
+intersection([HEAD|TAIL1],M,[HEAD|TAIL2]) :-
+    member(HEAD,M),
+    intersection(TAIL1,M,TAIL2).
+
+
+
 
 
 
