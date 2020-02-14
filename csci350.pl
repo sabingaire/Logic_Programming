@@ -125,3 +125,7 @@ larger-number([Head|T], Cons, Num, Head) :-
     Head > Cons,
     Head < Num,
     larger-number(T, Cons, Head, Head).
+
+%otherwise
+larger-number([_|T], Cons, Num, Ans) :-
+larger-number(T, Cons, Num, Ans).
