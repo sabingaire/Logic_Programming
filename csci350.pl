@@ -58,28 +58,7 @@ N is TailSum.
 %Returns true if N is the Minimum of L1 which is greater than minimum of L2
 
 
-%Base case
-%if L2 is empty and L1 only has one element then that would be the value
 
-min-above-min([M], [], M) :-
-number(M).
-
-%Second case when the second list is empty then return the minium valu from the first list
-min-above-min(L1, L2, N) :-
-    length(L2, 0),
-    minimum-value(L1, N).
-
-%If head is number and is greater than the minimum value
-
-min-above-min([Head|Tail], L2, Head) :-
-    number(Head),
-    minimum-value(L2, MinL),
-    MinL < Head,
-    larger-number(Tail, MinL, Head, Head).
-
-%Else, the answer is the predicate with tail list
-min-above-min([_|Tail], L2, Ans) :-
-    min-above-min(Tail, L2, Ans).
 
 %helper predicate:
 %minimum-value and larger-number
