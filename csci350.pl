@@ -57,7 +57,11 @@ N is TailSum.
 %Parameter: L1 and L2 which are simple list and N which is number
 %Returns true if N is the Minimum of L1 which is greater than minimum of L2
 
-
+% if minimum of L2 exists, try..
+min-above-min(L1, L2, N):-
+    minimum-value(L2, MinL2),
+    larger-number(L1, MinL2, GreaterList),
+    minimum-value(GreaterList, N).
 
 
 %helper predicate:
