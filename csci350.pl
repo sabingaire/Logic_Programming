@@ -135,12 +135,12 @@ minimum-value(TAIL, MIN_VAL).
 
 larger-number([], _,[]) :- !,
 
-%If the head is greater than constant and less than the number than that is the required target
-larger-number([Head|T], Cons, Num, Head) :-
+%If the head is greater than number and it is number
+larger-number([Head|TAIL], X, L) :-
     number(Head),
-    Head > Cons,
-    Head < Num,
-    larger-number(T, Cons, Head, Head).
+    Head > X,
+    larger-number(TAIL, X, L1),
+    append([Head], L1, L).
 
 %otherwise
 larger-number([_|T], Cons, Num, Ans) :-
