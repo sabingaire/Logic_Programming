@@ -3,6 +3,7 @@
 %This is the assignment for CSCI 350 class
 %This assignment is about Logic Programming.
 
+%Question 1
 %The sum-up-numbers- simple will sum up the numbers
 %If L=[], N=0
 
@@ -116,9 +117,9 @@ minimum-value([Head,NECK|TAIL], MIN_VAL):-
     minimum-value([Head|TAIL], MIN_VAL).
 
 minimum-value([Head, NECK|TAIL], MIN_VAL):-
-\+ number(Head),
-\+(number(NECK)),
-minimum-value(TAIL, MIN_VAL).
+    \+ number(Head),
+    \+(number(NECK)),
+    minimum-value(TAIL, MIN_VAL).
 
 %next Helper function is larger-number
 %This takes list and one number and return all greater that number
@@ -200,7 +201,6 @@ common-unique-elements(L1, L2 , L):-
 %The remove duplicates remove the duplicates from a given list
 %Base Case when the list is empty then the duplicate of empty list is empty.
 %This remove duplicates was added in order to return the common unique elements.added
-
 
 remove_duplicates([],[]).
 
